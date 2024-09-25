@@ -1,5 +1,4 @@
 ﻿using Business.Helpers.Results.Abstract;
-using Core.Helpers.Results.Concrete;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -9,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    public interface IContactService
+    public interface IPaymentService
     {
-        IResult Add(Contact contact);
-        IResult Update(Contact contact);
+        IResult Add(Payment payment);
+        IResult Update(Payment payment);
         IResult Delete(int id);
-        IDataResult<Contact> Get(int id);
+        IDataResult<List<Payment>> GetAll();
     }
 }

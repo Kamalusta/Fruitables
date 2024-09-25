@@ -17,7 +17,7 @@ namespace FruitAPI.Controllers
             var result = _categoryService.GetAllCategories();
             if (result.Success)
                 return Ok(result);
-            else return BadRequest();
+            else return BadRequest(result);
         }
 
         [HttpPost("addCategory")]
@@ -26,7 +26,7 @@ namespace FruitAPI.Controllers
             var result = _categoryService.Add(category);
             if (result.Success)
                 return Ok(result);
-            else return BadRequest();
+            else return BadRequest(result);
         }
 
         [HttpPut("deleteCategory")]

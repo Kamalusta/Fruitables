@@ -21,9 +21,9 @@ namespace DataAccess.Concrete.EF
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
-        public DbSet<Payment> payments { get; set; }
-        public DbSet<Shipping> shippings { get; set; }
-        public DbSet<Testimonial> testimonials { get; set;}
-        public DbSet<UserComment> usercomments { get; set; }
+        public DbSet<Payment> Payments { get; set; }
+        public DbSet<Shipping> Shippings { get; set; }
+        public DbSet<Testimonial> Testimonials { get; set;}
+        public DbSet<UserComment> Usercomments { get; set; }
     }
 }

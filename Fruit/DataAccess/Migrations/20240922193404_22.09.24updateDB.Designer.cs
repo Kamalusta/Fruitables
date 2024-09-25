@@ -4,6 +4,7 @@ using DataAccess.Concrete.EF;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(BaseProjectContext))]
-    partial class BaseProjectContextModelSnapshot : ModelSnapshot
+    [Migration("20240922193404_22.09.24updateDB")]
+    partial class _220924updateDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -168,8 +171,8 @@ namespace DataAccess.Migrations
                     b.Property<int>("ShippingId")
                         .HasColumnType("int");
 
-                    b.Property<decimal>("TotalOrderPrice")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("TotalOrderPrice")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

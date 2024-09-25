@@ -9,11 +9,9 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    public interface IContactService
+    public interface ICustomerService
     {
-        IResult Add(Contact contact);
-        IResult Update(Contact contact);
-        IResult Delete(int id);
-        IDataResult<Contact> Get(int id);
+        IResult Add(Customer customer);
+        IDataResult<Customer> GetByEmail(string email);
     }
 }

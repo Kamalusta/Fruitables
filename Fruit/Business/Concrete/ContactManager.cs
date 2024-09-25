@@ -1,12 +1,8 @@
 ﻿using Business.Abstract;
 using Business.Helpers.Results.Abstract;
+using Core.Helpers.Results.Concrete;
 using DataAccess.Abstract;
 using Entities.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
@@ -16,22 +12,39 @@ namespace Business.Concrete
 
         public IResult Add(Contact contact)
         {
-            throw new NotImplementedException();
+            _contactDal.Add(contact);
+            return new SuccessResult("Contact added");
         }
 
         public IResult Delete(int id)
         {
-            throw new NotImplementedException();
+            Contact delContact = _contactDal.Get(c => c.Id == id);
+            if (delContact != null)
+                delContact.IsDelete = true;
+            _contactDal.Delete(delContact);
+            return new SuccessResult("Contact deleted");
         }
 
-        public IDataResult<List<Contact>> GetAllCategories()
+        public IDataResult<Contact> Get(int id)
         {
-            throw new NotImplementedException();
+           var contact = _contactDal.Get(c => c.Id == id);
+            if (contact != null)
+                return new SuccessDataResult<Contact>(contact, "Contact loaded");
+            else return new ErrorDataResult<Contact>(contact, "Contact not found");
         }
 
         public IResult Update(Contact contact)
         {
-            throw new NotImplementedException();
+            Contact updatedContact = _contactDal.Get(c=>c.Id == contact.Id);
+            updatedContact.Facebook = contact.Facebook;
+            updatedContact.Address = contact.Address;
+            updatedContact.Phone = contact.Phone;
+            updatedContact.Email = contact.Email;
+            updatedContact.Location = contact.Location;
+            updatedContact.Sosial = contact.Sosial;
+            updatedContact.IsDelete = contact.IsDelete;
+            _contactDal.Update(contact);
+            return new SuccessResult("Contact updated");
         }
     }
 }

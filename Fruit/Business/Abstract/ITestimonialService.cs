@@ -1,5 +1,4 @@
 ﻿using Business.Helpers.Results.Abstract;
-using Core.Helpers.Results.Concrete;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -9,11 +8,12 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    public interface IContactService
+    public interface ITestimonialService
     {
-        IResult Add(Contact contact);
-        IResult Update(Contact contact);
+
+        IResult Add(Testimonial testimonial);
+        IResult Update(Testimonial testimonial);
         IResult Delete(int id);
-        IDataResult<Contact> Get(int id);
+        IDataResult<List<Testimonial>> GetAll();
     }
 }

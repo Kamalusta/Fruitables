@@ -29,7 +29,7 @@ namespace Business.Concrete
 
         public IDataResult<List<Product>> GetAllProducts()
         {
-            var products = _productDal.GetAll(p => p.IsDelete == false).ToList();
+            var products = _productDal.GetAll(p => p.IsDelete == false);
             if (products.Count > 0)
                 return new SuccessDataResult<List<Product>>(products, "Products loaded");
             else return new ErrorDataResult<List<Product>>(products, "Error");
